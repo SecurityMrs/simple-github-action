@@ -5,7 +5,7 @@ on: [push]
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    name: Scan the webapplication
+    name: Scan the web application
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,4 +16,5 @@ jobs:
         with:
           docker_name: 'owasp/zap2docker-stable'
           target: 'http://testphp.vulnweb.com/'
+          rule_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
